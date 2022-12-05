@@ -5,6 +5,8 @@ import mongoSanitize from "express-mongo-sanitize";
 import rateLimit from "express-rate-limit";
 import hpp from "hpp";
 import compression from "compression";
+import authRoutes from "./routes/auth-routes.js";
+import HttpError from "./models/http-error.js";
 
 const app = express();
 
@@ -31,6 +33,8 @@ app.use(
     origin: "*",
   })
 );
+
+app.use("/api/v1/users/", authRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route!", 404);
