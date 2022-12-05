@@ -5,8 +5,12 @@ import mongoSanitize from "express-mongo-sanitize";
 import rateLimit from "express-rate-limit";
 import hpp from "hpp";
 import compression from "compression";
-import authRoutes from "./routes/auth-routes.js";
 import HttpError from "./models/http-error.js";
+
+import authRoutes from "./routes/auth-routes.js";
+import recipeRoutes from "./routes/recipe-routes.js";
+import listRoutes from "./routes/list-routes.js";
+import checkAuth from "./middleware/checkAuth.js";
 
 const app = express();
 
@@ -35,6 +39,9 @@ app.use(
 );
 
 app.use("/api/v1/users/", authRoutes);
+app.use("/api/v1/recipes/", recipeRoutes);
+app.use(checkAuth);
+app.use("/api/v1/users/:userId/", listRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route!", 404);

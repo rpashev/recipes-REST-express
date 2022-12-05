@@ -27,15 +27,15 @@ const recipeSchema = new Schema(
       required: [true, "Author is required"],
     },
     prepTime: {
-      type: [Number, "Prep time must be a number in minutes"],
+      type: Number,
       required: [true, "Prep time is required"],
     },
     cookTime: {
-      type: [Number, "Cook time must be a number in minutes"],
+      type: Number,
       required: [true, "Cook time is required"],
     },
     servings: {
-      type: [Number, "Servings must be a number"],
+      type: Number,
       required: [true, "Servings is a required field"],
     },
     summary: {
