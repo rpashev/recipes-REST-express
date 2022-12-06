@@ -23,7 +23,7 @@ const userSchema = new Schema(
       minLenght: [6, "Password must be at least 6 characters"],
     },
     favorites: [{ type: Schema.Types.ObjectId, ref: "Recipe", default: [] }],
-    authored: [{ type: Schema.Types.ObjectId, ref: "Movie", default: [] }],
+    authored: [{ type: Schema.Types.ObjectId, ref: "Recipe", default: [] }],
   },
   { timestamps: true }
 );

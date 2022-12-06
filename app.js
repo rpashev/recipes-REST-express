@@ -41,7 +41,7 @@ app.use(
 app.use("/api/v1/users/", authRoutes);
 app.use("/api/v1/recipes/", recipeRoutes);
 app.use(checkAuth);
-app.use("/api/v1/users/:userId/", listRoutes);
+app.use("/api/v1/users/", listRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route!", 404);
