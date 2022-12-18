@@ -17,7 +17,7 @@ const recipeSchema = new Schema(
       type: [String],
       required: true,
     },
-    img: {
+    imageUrl: {
       type: String,
       required: [true, "Image is required"],
     },

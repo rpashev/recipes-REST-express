@@ -18,7 +18,7 @@ const createRecipe = async (req, res, next) => {
     title,
     tags,
     ingredients,
-    img,
+    imageUrl,
     prepTime,
     cookTime,
     servings,
@@ -32,7 +32,7 @@ const createRecipe = async (req, res, next) => {
     tags?.length == 0 ||
     !ingredients ||
     ingredients?.length == 0 ||
-    !img?.trim() ||
+    !imageUrl?.trim() ||
     !prepTime ||
     prepTime < 0 ||
     !cookTime ||
@@ -115,7 +115,7 @@ const updateRecipe = async (req, res, next) => {
     title,
     tags,
     ingredients,
-    img,
+    imageUrl,
     prepTime,
     cookTime,
     servings,
@@ -129,7 +129,7 @@ const updateRecipe = async (req, res, next) => {
     tags?.length == 0 ||
     !ingredients ||
     ingredients?.length == 0 ||
-    !img?.trim() ||
+    !imageUrl?.trim() ||
     !prepTime ||
     prepTime < 0 ||
     !cookTime ||
@@ -147,7 +147,7 @@ const updateRecipe = async (req, res, next) => {
   recipe.title = title;
   recipe.tags = tags;
   recipe.ingredients = ingredients;
-  recipe.img = img;
+  recipe.imageUrl = imageUrl;
   recipe.prepTime = prepTime;
   recipe.cookTime = cookTime;
   recipe.servings = servings;
