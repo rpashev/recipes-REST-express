@@ -81,6 +81,7 @@ const getSingleRecipe = async (req, res, next) => {
     const error = new HttpError("Could not find recipe!", 404);
     return next(error);
   }
+  recipe.ingredients = recipe.ingredients.filter((ing) => ing !== "");
 
   res.json(recipe);
 };
